@@ -1,0 +1,81 @@
+{
+  "consumer": {
+    "name": "CounterClient"
+  },
+  "provider": {
+    "name": "CounterApi"
+  },
+  "interactions": [
+    {
+      "description": "get counter",
+      "providerState": "counter exist",
+      "request": {
+        "method": "GET",
+        "path": "/counter"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "value": 0
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get increased counter",
+      "providerState": "counter increases",
+      "request": {
+        "method": "GET",
+        "path": "/increase"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "value": 1
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get decreased counter",
+      "providerState": "counter decreases",
+      "request": {
+        "method": "GET",
+        "path": "/decrease"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "value": -1
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
