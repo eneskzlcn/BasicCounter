@@ -1,6 +1,8 @@
 import { mount } from '@vue/test-utils'
 import Counter from '@/components/Counter.vue'
 
+
+
 describe('Counter', () => {
   
   //is there a counter comp rendered.
@@ -37,7 +39,7 @@ describe('Counter', () => {
   // is the initial value of counter == 0 ?
   test('is the initial value of counte == 0',async() =>{
     const wrapper = mount(Counter)
-    expect(wrapper.vm.counter).toBe(0);
+    expect(await wrapper.vm.counter).toBe(0);
   })
 
   //is decrement func. runs when click to increment btn
